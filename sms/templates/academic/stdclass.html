@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="card">
+	<div class="card-header">
+	<strong>Add Class</strong></div>
+		<div class="card-body">
+
+<form action="" method="POST" class='form-horizontal'>
+	{% csrf_token %}
+	{% for field in forms %}
+    <div class="form-group rop">
+        {{ field.errors }}
+        <label class='col-md-3 col-form-label'>{{ field.label_tag }} {{ field }}</label>
+    </div>
+	{% endfor %}
+
+	<input class="btn btn-sm btn-primary" type="submit" value="Save">
+
+
+		</div>
+	</div>
+
+</div>
+
+</form>
+
+{% endblock %}

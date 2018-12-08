@@ -1,0 +1,20 @@
+{% load static %}
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}"><i class="icon-speedometer"></i> Dashboard</a>
+                <a class="nav-link" href="{% url 'school-info' %}"><i class="icon-speedometer"></i> School Information</a>
+                <a class="nav-link" href="{% url 'student-info' %}"><i class="icon-speedometer"></i> Student Registration</a>
+                <a class="nav-link" href="{% url 'student-class' %}"><i class="icon-speedometer"></i> Student Class</a>
+                <a class="nav-link" href="{% url 'sub_form' %}"><i class="icon-speedometer"></i> Subject</a>
+                <a class="nav-link" href="{% url 'student-fees' %}"><i class="icon-speedometer"></i> Student Fees</a>
+                <a class="nav-link" href="{% url 'student-result' %}"><i class="icon-speedometer"></i> Student Result</a>
+            </li>
+        </ul>
+    </nav>
+    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+
+    {% block sidebar %}
+    {% endblock %}
+</div>

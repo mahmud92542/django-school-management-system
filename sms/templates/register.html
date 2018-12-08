@@ -1,0 +1,53 @@
+{% extends 'base_auth.html' %}
+
+{% block extrajs %}
+
+<script type='text/javascript'>
+$(document).ready(function(){
+
+	$('#id_username').keyup(function(){
+
+		var username = $('#id_username').val();
+		var api_url = 'http://127.0.0.1:8000/api/check/user/' + username;
+
+		$.ajax({
+			url: api_url,
+			method: 'get',
+			success: function(data){
+				if (data.status){
+				$('#errMsg').text("User name already exists");
+			}
+
+		}
+	});
+});
+});
+</script>
+
+
+{% endblock %}
+
+
+{% block container %}
+
+<div class='container col-md-6'>
+
+<h2>Register Now</h2>
+{% if errMsg %}
+	<p class='text-danger'>{{ errMsg }}</p>
+
+{% endif %}
+<p id='errMsg'></p>
+<form action='' method="post" class="">  
+  {% csrf_token %}
+  {{ forms.as_p }}
+
+  <input type="submit" name="Register" class="btn btn-success" />
+
+</form>
+</div>
+
+
+
+
+{% endblock %}
